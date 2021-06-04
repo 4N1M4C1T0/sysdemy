@@ -33,7 +33,7 @@
                       <i class="material-icons">people</i>
                   </span>
                                     </div>
-                                    <br><select id="tipo_usu" name="tipo_usu">
+                                    <br><select id="tipo_usu" class="form-control" name="tipo_usu">
                                         <option value="" selected="selected">- SELECCIONE -</option>
                                         <option value="profesor">PROFESOR</option>
                                         <option value="alumno">ALUMNO</option>
