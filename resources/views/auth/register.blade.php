@@ -11,24 +11,65 @@
                         <div class="card-header card-header-primary text-center">
                             <h4 class="card-title"><strong>{{ __('Register') }}</strong></h4>
                             <div class="social-line">
-                                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                                <a href="#" class="btn btn-just-icon btn-link btn-white">
                                     <i class="fa fa-facebook-square"></i>
                                 </a>
-                                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                                <a href="#" class="btn btn-just-icon btn-link btn-white">
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                                <a href="#" class="btn btn-just-icon btn-link btn-white">
                                     <i class="fa fa-google-plus"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="card-body ">
                             <p class="card-description text-center">{{ __('Or Be Classical') }}</p>
-                            <div class="bmd-form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+
+                            <!--TIPO DE USUARIO-->
+                            <div class="bmd-form-group{{ $errors->has('tipo_usu') ? ' has-danger' : '' }} mt-3">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                   <span class="input-group-text">
-                      <i class="material-icons">face</i>
+                      <i class="material-icons">people</i>
+                  </span>
+                                    </div>
+                                    <br><select id="tipo_usu" name="tipo_usu">
+                                        <option value="" selected="selected">- SELECCIONE -</option>
+                                        <option value="profesor">PROFESOR</option>
+                                        <option value="alumno">ALUMNO</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('tipo_usu'))
+                                    <div id="tipo_usu-error" class="error text-danger pl-3" for="tipo_usu" style="display: block;">
+                                        <strong>{{ $errors->first('tipo_usu') }}</strong>
+                                    </div>
+                                @endif
+                            </div>
+                            <!--TIPO DE USUARIO-->
+
+                            <!--DNI-->
+                            <div class="bmd-form-group{{ $errors->has('dni') ? ' has-danger' : '' }} mt-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">account_box</i>
+                  </span>
+                                    </div>
+                                    <input type="number" name="dni" class="form-control" placeholder="{{ __('DNI...') }}" value="{{ old('dni') }}" required autocomplete="dni">
+                                </div>
+                                @if ($errors->has('dni'))
+                                    <div id="dni-error" class="error text-danger pl-3" for="dni" style="display: block;">
+                                        <strong>{{ $errors->first('dni') }}</strong>
+                                    </div>
+                                @endif
+                            </div>
+                            <!--DNI-->
+
+                            <div class="bmd-form-group{{ $errors->has('name') ? ' has-danger' : '' }} mt-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">person</i>
                   </span>
                                     </div>
                                     <input type="text" name="name" class="form-control" placeholder="{{ __('Name...') }}" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -39,6 +80,43 @@
                                     </div>
                                 @endif
                             </div>
+
+                            <!--DIRECCION-->
+                            <div class="bmd-form-group{{ $errors->has('direccion') ? ' has-danger' : '' }} mt-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">map</i>
+                  </span>
+                                    </div>
+                                    <input type="text" name="direccion" class="form-control" placeholder="{{ __('Direccion...') }}" value="{{ old('direccion') }}" required autocomplete="direccion">
+                                </div>
+                                @if ($errors->has('direccion'))
+                                    <div id="direccion-error" class="error text-danger pl-3" for="direccion" style="display: block;">
+                                        <strong>{{ $errors->first('direccion') }}</strong>
+                                    </div>
+                                @endif
+                            </div>
+                            <!--DIRECCION-->
+
+                            <!--USERMANE-->
+                            <div class="bmd-form-group{{ $errors->has('username') ? ' has-danger' : '' }} mt-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">face</i>
+                  </span>
+                                    </div>
+                                    <input type="text" name="username" class="form-control" placeholder="{{ __('Username...') }}" value="{{ old('username') }}" required autocomplete="username">
+                                </div>
+                                @if ($errors->has('username'))
+                                    <div id="username-error" class="error text-danger pl-3" for="username" style="display: block;">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </div>
+                                @endif
+                            </div>
+                            <!--USERMANE-->
+
                             <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }} mt-3">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
