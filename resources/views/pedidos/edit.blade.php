@@ -1,85 +1,49 @@
-@extends('layouts.main', ['activePage'=> 'users', 'titlePage' => 'Editar usuario'])
+@extends('layouts.main', ['activePage'=> 'pedidos', 'titlePage' => 'Editar pedido'])
 
 @section('content')
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{route('users.update',$user->id)}}" method="post" class="form-horizontal">
+                    <form action="{{route('pedidos.update',$pedido->id)}}" method="post" class="form-horizontal">
                         @csrf
                         @method('PUT')
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title">Usuario</h4>
+                                <h4 class="card-title">Pedido</h4>
                                 <p class="card-category">Editar datos</p>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <label for="tipo_usu" class="col-sm-2 col-form-label">Tipo de usuario</label>
+                                    <label for="idusu" class="col-sm-2 col-form-label">ID DEL USUARIO</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="tipo_usu" value="{{$user->tipo_usu}}" placeholder="Tipo de usuario" disabled>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label for="dni" class="col-sm-2 col-form-label">DNI</label>
-                                    <div class="col-sm-7">
-                                        <input type="number" class="form-control" name="dni" value="{{old('dni',$user->dni)}}" placeholder="Ingrese su dni" autofocus>
-                                        @if($errors->has('dni'))
-                                            <span class="error text-danger" for="input-dni">{{$errors->first('dni')}}</span>
+                                        <input type="number" class="form-control" name="idusu" value="{{$pedido->idusu}}" placeholder="ID DE USUARIO" autofocus>
+                                        @if($errors->has('idusu'))
+                                            <span class="error text-danger" for="input-idusu">{{$errors->first('idusu')}}</span>
                                         @endif
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <label for="name" class="col-sm-2 col-form-label">Nombre</label>
+                                    <label for="idcurso" class="col-sm-2 col-form-label">ID DEL CURSO</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="name" value="{{old('name',$user->name)}}" placeholder="Ingrese su nombre">
-                                        @if($errors->has('name'))
-                                            <span class="error text-danger" for="input-name">{{$errors->first('name')}}</span>
+                                        <input type="number" class="form-control" name="idcurso" value="{{$pedido->idcurso}}" placeholder="ID DE CURSO">
+                                        @if($errors->has('idcurso'))
+                                            <span class="error text-danger" for="input-idcurso">{{$errors->first('idcurso')}}</span>
                                         @endif
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <label for="direccion" class="col-sm-2 col-form-label">Direccion</label>
+                                    <label for="importe_total" class="col-sm-2 col-form-label">IMPORTE TOTAL</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="direccion" value="{{old('direccion',$user->direccion)}}" placeholder="Ingrese su direccion">
-                                        @if($errors->has('direccion'))
-                                            <span class="error text-danger" for="input-direccion">{{$errors->first('direccion')}}</span>
+                                        <input type="number" class="form-control" name="importe_total" value="{{$pedido->importe_total}}" placeholder="IMPORTE TOTAL">
+                                        @if($errors->has('importe_total'))
+                                            <span class="error text-danger" for="input-importe_total">{{$errors->first('importe_total')}}</span>
                                         @endif
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <label for="username" class="col-sm-2 col-form-label">Nombre de usuario</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="username" value="{{old('username',$user->username)}}" placeholder="Ingrese su username">
-                                        @if($errors->has('username'))
-                                            <span class="error text-danger" for="input-username">{{$errors->first('username')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label for="email" class="col-sm-2 col-form-label">E-mail</label>
-                                    <div class="col-sm-7">
-                                        <input type="email" class="form-control" name="email" value="{{old('email',$user->email)}}" placeholder="Ingrese su e-mail">
-                                        @if($errors->has('email'))
-                                            <span class="error text-danger" for="input-email">{{$errors->first('email')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label for="password" class="col-sm-2 col-form-label">Password</label>
-                                    <div class="col-sm-7">
-                                        <input type="password" class="form-control" name="password" placeholder="Ingrese una nueva contraseña si desea">
-                                        @if($errors->has('password'))
-                                            <span class="error text-danger" for="input-password">{{$errors->first('password')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
                             </div>
                             <!--Footer-->
                             <div class="card-footer ml-auto mr-auto">

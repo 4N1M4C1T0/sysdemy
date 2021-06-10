@@ -33,6 +33,13 @@
             </a>
         </li>
 
+        <li class="nav-item{{ $activePage == 'pedidos' ? ' active' : '' }}">
+            <a class="nav-link" href="{{route('pedidos.index')}}">
+                <i class="material-icons">shopping_cart</i>
+                <p>Pedidos</p>
+            </a>
+        </li>
+
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img style="width:25px" src="{{ asset('img/laravel.svg') }}"></i>
@@ -58,12 +65,6 @@
         </div>
       </li>
 
-      <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
-          <i class="material-icons">notifications</i>
-          <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
       <li class="nav-item active-pro{{ $activePage == 'upgrade' ? ' active' : '' }}">
         <a class="nav-link text-white bg-danger" href="#">
           <i class="material-icons text-white">unarchive</i>

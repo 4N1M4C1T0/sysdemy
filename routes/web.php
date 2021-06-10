@@ -45,7 +45,7 @@ Route::delete('/cursos/{curso}',[CursoController::class,'destroy'])->name('curso
 Route::get('/pedidos/create',[PedidoController::class,'create'])->name('pedidos.create');
 Route::post('/pedidos',[PedidoController::class,'store'])->name('pedidos.store');
 Route::get('/pedidos',[PedidoController::class, 'index'])->name('pedidos.index');
-Route::get('/pedidos/{user}',[PedidoController::class, 'show'])->name('pedidos.show');
-Route::get('/pedidos/{user}/edit',[PedidoController::class, 'edit'])->name('pedidos.edit');
-Route::put('/pedidos/{user}',[PedidoController::class,'update'])->name('pedidos.update');
-Route::delete('/pedidos/{user}',[PedidoController::class,'destroy'])->name('pedidos.delete');
+Route::get('/pedidos/{pedido}',[PedidoController::class, 'show'])->name('pedidos.show');
+Route::get('/pedidos/{pedido}/edit',[PedidoController::class, 'edit'])->name('pedidos.edit');
+Route::put('/pedidos/{pedido}',[PedidoController::class,'update'])->name('pedidos.update');
+Route::delete('/pedidos/{pedido}',[PedidoController::class,'destroy'])->name('pedidos.delete');

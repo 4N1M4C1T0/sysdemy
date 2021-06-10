@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage'=> 'users', 'titlePage' => 'Usuarios'])
+@extends('layouts.main', ['activePage'=> 'pedidos', 'titlePage' => 'Pedidos'])
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -8,8 +8,8 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Usuarios</h4>
-                                    <p class="card-category">Usuarios registrados</p>
+                                    <h4 class="card-title">Pedidos</h4>
+                                    <p class="card-category">Pedidos registrados</p>
                                 </div>
                                     <div class="card-body">
                                         @if(session('success'))
@@ -20,37 +20,29 @@
 
                                         <div class="row">
                                             <div class="col-12 text-right">
-                                                <a href="{{route('users.create')}}" class="btn btn-sm btn-primary">Añadir usuario</a>
+                                                <a href="{{route('pedidos.create')}}" class="btn btn-sm btn-primary">Añadir pedidos</a>
                                             </div>
                                         </div>
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead class="text-primary">
-                                                <th>ID</th>
-                                                <th>TIPO DE USUARIO</th>
-                                                <th>DNI</th>
-                                                <th>NOMBRE</th>
-                                                <th>DIRECCION</th>
-                                                <th>USERNAME</th>
-                                                <th>E-MAIL</th>
+                                                <th>ID DEL USUARIO</th>
+                                                <th>ID DEL CURSO</th>
+                                                <th>IMPORTE TOTAL</th>
                                                 <th>CREATED_AT</th>
                                                 <th class="text-right">ACCIONES</th>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($users as $user)
+                                                @foreach($pedidos as $pedido)
                                                     <tr>
-                                                        <td>{{$user->id}}</td>
-                                                        <td>{{$user->tipo_usu}}</td>
-                                                        <td>{{$user->dni}}</td>
-                                                        <td>{{$user->name}}</td>
-                                                        <td>{{$user->direccion}}</td>
-                                                        <td>{{$user->username}}</td>
-                                                        <td>{{$user->email}}</td>
-                                                        <td>{{$user->created_at}}</td>
+                                                        <td>{{$pedido->idusu}}</td>
+                                                        <td>{{$pedido->idcurso}}</td>
+                                                        <td>{{$pedido->importe_total}}</td>
+                                                        <td>{{$pedido->created_at}}</td>
                                                         <td class="td-actions text-right">
-                                                            <a href="{{route('users.show',$user->id)}}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                                            <a href="{{route('users.edit',$user->id)}}" class="btn btn-warning"><i class="material-icons">edit</i></a>
-                                                            <form action="{{route('users.delete',$user->id)}}" method="post" style="display: inline-block" onsubmit="return confirm('¿Estas seguro?')">
+                                                            <a href="{{route('pedidos.show',$pedido->id)}}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                            <a href="{{route('pedidos.edit',$pedido->id)}}" class="btn btn-warning"><i class="material-icons">edit</i></a>
+                                                            <form action="{{route('pedidos.delete',$pedido->id)}}" method="post" style="display: inline-block" onsubmit="return confirm('¿Estas seguro?')">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button class="btn btn-danger" type="submit" rel="tooltip">
@@ -66,7 +58,7 @@
                                         </div>
                                     </div>
                                 <div class="card-footer mr-auto">
-                                    {{$users->links()}}
+                                    {{$pedidos->links()}}
                                 </div>
                             </div>
                         </div>
