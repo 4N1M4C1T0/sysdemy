@@ -28,6 +28,7 @@ class CursoEditRequest extends FormRequest
             'nombre_curso' => 'required|min:3|max:100',
             'biografia_curso'=> 'required|min:3|max:100',
             'precio'=> 'required',
+            'imagen'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

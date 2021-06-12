@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class CursoController extends Controller
 {
     public function index(){
-        $cursos = Curso::paginate();
+        $cursos = Curso::paginate(5);
         return view('cursos.index',compact('cursos'));
     }
 
@@ -19,7 +19,18 @@ class CursoController extends Controller
     }
 
     public function store(CursoCreateRequest $request){
-        $curso = Curso::create($request->only('nombre_curso', 'biografia_curso', 'precio', 'idusu','multimedia'));
+
+        $curso = new Curso();
+        $curso->nombre_curso=$request->nombre_curso;
+        $curso->biografia_curso=$request->biografia_curso;
+        $curso->precio=$request->precio;
+        $curso->idusu=$request->idusu;
+        $imageName = time().'.'.$request->imagen->extension();
+        $request->imagen->move(public_path('images'),$imageName);
+        $curso->imagen = $imageName;
+        $curso->save();
+
+        //$curso = Curso::create($request->only('nombre_curso', 'biografia_curso','imagen', 'precio', 'idusu'));
 
         return redirect()->route('cursos.show',$curso->id)->with('success'.'Curso creado correctamente');
     }
@@ -33,13 +44,21 @@ class CursoController extends Controller
     }
 
     public function update(CursoEditRequest $request,Curso $curso){
-        $data = $request->only('nombre_curso', 'biografia_curso', 'precio', 'idusu','multimedia');
-        $curso->update($data);
+
+        $curso->nombre_curso = $request->nombre_curso;
+        $curso->biografia_curso = $request->biografia_curso;
+        $curso->precio = $request->precio;
+
+        $imageName = time().'.'.$request->imagen->extension();
+        $request->imagen->move(public_path('images'),$imageName);
+        $curso->imagen =$imageName;
+        //$data = $request->only('nombre_curso', 'biografia_curso', 'precio', 'idusu','multimedia');
+        $curso->save();
         return redirect()->route('cursos.show',$curso->id)->with('success','Datos actualizados correctamente');
     }
 
     public function destroy(Curso $curso){
         $curso->delete();
-        return back()->with('success','Curs eliminado correctamente');
+        return back()->with('success','Curso eliminado correctamente');
     }
 }

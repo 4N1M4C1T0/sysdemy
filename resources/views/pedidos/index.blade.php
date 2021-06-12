@@ -40,7 +40,7 @@
                                                         <td>{{$pedido->importe_total}}</td>
                                                         <td>{{$pedido->created_at}}</td>
                                                         <td class="td-actions text-right">
-                                                            <a href="{{route('pedidos.show',$pedido->id)}}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                            <a href="{{route('pedidos.show',$pedido->id)}}" class="btn btn-info"><i class="material-icons">store</i></a>
                                                             <a href="{{route('pedidos.edit',$pedido->id)}}" class="btn btn-warning"><i class="material-icons">edit</i></a>
                                                             <form action="{{route('pedidos.delete',$pedido->id)}}" method="post" style="display: inline-block" onsubmit="return confirm('¿Estas seguro?')">
                                                                 @csrf

@@ -23,7 +23,7 @@
                                             <p class="card-text">
                                                 <div class="author">
                                                 <a href="#" class="d-flex">
-                                                    <img src="{{asset('/img/default-avatar.png')}}" alt="image" class="avatar">
+                                                    <img src="{{asset('images/'.$curso->imagen)}}" alt="image" class="avatar">
                                                     <h5 class="title mx-3">{{$curso->nombre_curso}}</h5>
                                                 </a>
                                                 <p class="description">
@@ -45,39 +45,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div><!--AQUI TERMINA 1-->
-
-                               {{-- <div class="col-md-4">
-                                    <div class="card card-user">
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                            <div class="author">
-                                                <a href="#">
-                                                    <img src="{{asset('/img/default-avatar.png')}}" alt="image" class="avatar">
-                                                    <h5 class="title mt-3">{{$curso->name}}</h5>
-                                                </a>
-                                                <p class="description">
-                                                    {{$curso->tipo_usu}}<br>
-                                                    {{$curso->username}}<br>
-                                                    {{$curso->email}}<br>
-                                                    {{$curso->created_at}}<br>
-                                                    {{$curso->dni}}<br>
-                                                    {{$curso->direccion}}<br>
-                                                </p>
-                                            </div>
-                                            </p>
-                                            <div class="card-description">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut blanditiis consequatur deserunt dolores eos est eum ipsa ipsam labore.
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="button-container">
-                                                <a href="{{route('cursos.index')}}" class="btn btn-sm btn-success mr-3">Volver</a>
-                                                <button class="btn btn-sm btn-primary">Editar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--AQUI EL OTRO-->--}}
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -28,6 +28,7 @@ class CursoCreateRequest extends FormRequest
                 'biografia_curso'=> 'required|min:3|max:100',
                 'precio'=> 'required',
                 'idusu'=> 'required',
+                'imagen'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

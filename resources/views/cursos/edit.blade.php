@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{route('cursos.update',$curso->id)}}" method="post" class="form-horizontal">
+                    <form action="{{route('cursos.update',$curso->id)}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card">
@@ -46,20 +46,12 @@
                                 </div>
 
                                 <div class="row">
-                                    <label for="multimedia" class="col-sm-2 col-form-label">MULTIMEDIA</label>
+                                    <label for="imagen" class="col-sm-2 col-form-label">imagen</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="multimedia" value="{{old('multimedia',$curso->multimedia)}}" placeholder="IMAGEN DEL CURSO">
-                                        @if($errors->has('multimedia'))
-                                            <span class="error text-danger" for="input-multimedia">{{$errors->first('multimedia')}}</span>
+                                        <input type="file" class="btn btn-primary" name="imagen" value="{{old('imagen',$curso->imagen)}}" placeholder="IMAGEN DEL CURSO">
+                                        @if($errors->has('imagen'))
+                                            <span class="error text-danger" for="input-imagen">{{$errors->first('imagen')}}</span>
                                         @endif
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label for="idusu" class="col-sm-2 col-form-label">ID DEL USUARIO</label>
-                                    <div class="col-sm-7">
-                                        <input type="number" class="form-control" name="idusu" value="{{old('idusu',$curso->idusu)}}" placeholder="ID del usuario" disabled>
-
                                     </div>
                                 </div>
 

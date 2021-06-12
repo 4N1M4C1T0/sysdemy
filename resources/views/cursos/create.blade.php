@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{route('cursos.store')}}" method="post" class="form-horizontal">
+                    <form action="{{route('cursos.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                         @csrf
                         <div class="card">
                             <div class="card-header card-header-primary">
@@ -45,11 +45,11 @@
                                 </div>
 
                                 <div class="row">
-                                    <label for="multimedia" class="col-sm-2 col-form-label">MULTIMEDIA</label>
+                                    <label for="imagen" class="col-sm-2 col-form-label">IMAGEN</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="multimedia" placeholder="Ingrese la imagen" value="{{old('multimedia')}}">
-                                        @if($errors->has('multimedia'))
-                                            <span class="error text-danger" for="input-multimedia">{{$errors->first('multimedia')}}</span>
+                                        <input type="file" class="btn btn-primary" name="imagen">
+                                        @if($errors->has('imagen'))
+                                            <span class="error text-danger" for="input-imagen">{{$errors->first('imagen')}}</span>
                                         @endif
                                     </div>
                                 </div>

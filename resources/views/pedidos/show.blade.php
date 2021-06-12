@@ -22,9 +22,7 @@
                                         <div class="card-body">
                                             <p class="card-text">
                                                 <div class="author">
-                                                <a href="#" class="d-flex">
-                                                    <img src="{{asset('/img/default-avatar.png')}}" alt="image" class="avatar">
-                                                </a>
+
                                                 <p class="description">
                                                     {{$pedido->idusu}}<br>
                                                     {{$pedido->idcurso}}<br>
@@ -41,39 +39,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div><!--AQUI TERMINA 1-->
-
-                               {{-- <div class="col-md-4">
-                                    <div class="card card-user">
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                            <div class="author">
-                                                <a href="#">
-                                                    <img src="{{asset('/img/default-avatar.png')}}" alt="image" class="avatar">
-                                                    <h5 class="title mt-3">{{$pedido->name}}</h5>
-                                                </a>
-                                                <p class="description">
-                                                    {{$pedido->tipo_usu}}<br>
-                                                    {{$pedido->username}}<br>
-                                                    {{$pedido->email}}<br>
-                                                    {{$pedido->created_at}}<br>
-                                                    {{$pedido->dni}}<br>
-                                                    {{$pedido->direccion}}<br>
-                                                </p>
-                                            </div>
-                                            </p>
-                                            <div class="card-description">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut blanditiis consequatur deserunt dolores eos est eum ipsa ipsam labore.
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="button-container">
-                                                <a href="{{route('pedidos.index')}}" class="btn btn-sm btn-success mr-3">Volver</a>
-                                                <button class="btn btn-sm btn-primary">Editar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--AQUI EL OTRO-->--}}
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -17,7 +17,7 @@ class CreateCursosTable extends Migration
             $table->id();
             $table->string("nombre_curso",40);
             $table->string("biografia_curso",1000);
-            $table->string("multimedia")->nullable();
+            $table->string("imagen")->nullable();
             $table->decimal("precio",10,2);
             $table->timestamps();
         });
