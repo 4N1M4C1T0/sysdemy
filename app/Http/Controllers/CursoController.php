@@ -14,6 +14,11 @@ class CursoController extends Controller
         return view('cursos.index',compact('cursos'));
     }
 
+    public function segundoindex(){
+        $cursos = Curso::paginate(2);
+        return view('home', compact('cursos'));
+    }
+
     public function  create(){
         return view('cursos.create');
     }

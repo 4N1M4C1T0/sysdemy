@@ -6,6 +6,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-12">
+                            @if(Auth::user()->tipo_usu == "administrador" )
                             <div class="card">
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title">Pedidos</h4>
@@ -61,6 +62,106 @@
                                     {{$pedidos->links()}}
                                 </div>
                             </div>
+                            @endif
+
+                            @if(Auth::user()->tipo_usu == "profesor" )
+                                <div class="card">
+                                        <div class="card-header card-header-primary">
+                                            <h4 class="card-title">Pedidos</h4>
+                                            <p class="card-category">Pedidos registrados</p>
+                                        </div>
+                                        <div class="card-body">
+                                            @if(session('success'))
+                                                <div class="alert alert-success" role="success">
+                                                    {{session('success')}}
+                                                </div>
+                                            @endif
+
+                                            <div class="row">
+                                                <div class="col-12 text-right">
+                                                    <a href="{{route('pedidos.create')}}" class="btn btn-sm btn-primary">Añadir pedidos</a>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class="text-primary">
+                                                    <th>ID DEL USUARIO</th>
+                                                    <th>ID DEL CURSO</th>
+                                                    <th>IMPORTE TOTAL</th>
+                                                    <th>CREATED_AT</th>
+                                                    <th class="text-right">ACCIONES</th>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pedidos as $pedido)
+                                                        <tr>
+                                                            <td>{{$pedido->idusu}}</td>
+                                                            <td>{{$pedido->idcurso}}</td>
+                                                            <td>{{$pedido->importe_total}}</td>
+                                                            <td>{{$pedido->created_at}}</td>
+                                                            <td class="td-actions text-right">
+                                                                <a href="{{route('pedidos.show',$pedido->id)}}" class="btn btn-info"><i class="material-icons">store</i></a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer mr-auto">
+                                            {{$pedidos->links()}}
+                                        </div>
+                                    </div>
+                            @endif
+
+                            @if(Auth::user()->tipo_usu == "alumno" )
+                                <div class="card">
+                                        <div class="card-header card-header-primary">
+                                            <h4 class="card-title">Pedidos</h4>
+                                            <p class="card-category">Pedidos registrados</p>
+                                        </div>
+                                        <div class="card-body">
+                                            @if(session('success'))
+                                                <div class="alert alert-success" role="success">
+                                                    {{session('success')}}
+                                                </div>
+                                            @endif
+                                                <div class="row">
+                                                    <div class="col-12 text-right">
+                                                        <a href="{{route('pedidos.create')}}" class="btn btn-sm btn-primary">Añadir pedidos</a>
+                                                    </div>
+                                                </div>
+
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class="text-primary">
+                                                    <th>ID DEL USUARIO</th>
+                                                    <th>ID DEL CURSO</th>
+                                                    <th>IMPORTE TOTAL</th>
+                                                    <th>CREATED_AT</th>
+                                                    <th class="text-right">ACCIONES</th>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($pedidos as $pedido)
+                                                        <tr>
+                                                            <td>{{$pedido->idusu}}</td>
+                                                            <td>{{$pedido->idcurso}}</td>
+                                                            <td>{{$pedido->importe_total}}</td>
+                                                            <td>{{$pedido->created_at}}</td>
+                                                            <td class="td-actions text-right">
+                                                                <a href="{{route('pedidos.show',$pedido->id)}}" class="btn btn-info"><i class="material-icons">store</i></a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer mr-auto">
+                                            {{$pedidos->links()}}
+                                        </div>
+                                    </div>
+                            @endif
+
                         </div>
                     </div>
                 </div>

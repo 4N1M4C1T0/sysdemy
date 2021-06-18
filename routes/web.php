@@ -18,14 +18,14 @@ use App\Http\Controllers\PedidoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [CursoController::class, 'segundoindex'])->name('home');
 
 //usuario
 Route::get('/users/create',[UserController::class,'create'])->name('users.create');
-Route::post('/users',[UserController::class,'store'])->name('users.store');
+Route::post('/users/{user}',[UserController::class,'store'])->name('users.store');
 Route::get('/users',[UserController::class, 'index'])->name('users.index');
 Route::get('/users/{user}',[UserController::class, 'show'])->name('users.show');
 Route::get('/users/{user}/edit',[UserController::class, 'edit'])->name('users.edit');
