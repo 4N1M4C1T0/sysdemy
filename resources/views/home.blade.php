@@ -28,8 +28,6 @@
                                                     <a href="#" class="d-flex">
                                                         <img src="{{asset('images/'.$curso->imagen)}}" alt="image" width="300px" height="170px">
                                                     </a>
-
-
                                                 </div>
                                                 </p>
                                             </div>

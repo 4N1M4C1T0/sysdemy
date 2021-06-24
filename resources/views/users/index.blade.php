@@ -163,7 +163,6 @@
                                                             <td>{{$user->created_at}}</td>
                                                             <td class="td-actions text-right">
                                                                 <a href="{{route('users.show',$user->id)}}" class="btn btn-info"><i class="material-icons">person</i></a>
-
                                                             </td>
                                                         </tr>
                                                     @endforeach
