@@ -37,7 +37,7 @@ class CursoController extends Controller
 
         //$curso = Curso::create($request->only('nombre_curso', 'biografia_curso','imagen', 'precio', 'idusu'));
 
-        return redirect()->route('cursos.show',$curso->id)->with('success'.'Curso creado correctamente');
+        return redirect()->route('cursos.show',$curso->id)->with('success','Curso creado correctamente');
     }
 
     public function show(Curso $curso){
